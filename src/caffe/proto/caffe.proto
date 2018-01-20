@@ -437,7 +437,7 @@ message ParamSpec {
 // NOTE
 // Update the next available ID when you add a new LayerParameter field.
 //
-// LayerParameter next available layer-specific ID: 147 (last added: recurrent_param)
+// LayerParameter next available layer-specific ID: 148 (last added: SegGtParameter)
 message LayerParameter {
   optional string name = 1; // the layer name
   optional string type = 2; // the layer type
@@ -533,6 +533,7 @@ message LayerParameter {
   optional ReLUParameter relu_param = 123;
   optional ReshapeParameter reshape_param = 133;
   optional ScaleParameter scale_param = 142;
+  optional SegGtParameter seggt_param = 147;
   optional SigmoidParameter sigmoid_param = 124;
   optional SoftmaxParameter softmax_param = 125;
   optional SPPParameter spp_param = 132;
@@ -1604,6 +1605,13 @@ message ScaleParameter {
   optional FillerParameter bias_filler = 5;
 }
 
+message SegGtParameter {
+  optional uint32 background_label_id = 1 [default = 0];
+  optional bool use_difficult_gt = 2 [default = true];
+  optional bool non_exclusive = 3 [default = false];
+  optional uint32 num_class = 4 [default = 21];
+}
+
 message SigmoidParameter {
   enum Engine {
     DEFAULT = 0;
@@ -1637,6 +1645,9 @@ message SoftmaxParameter {
   // from the end (e.g., -1 for the last axis).
   // Any other axes will be evaluated as independent softmaxes.
   optional int32 axis = 2 [default = 1];
+  optional float pos_mult = 3 [default = 1];
+  optional int32 pos_cid = 4 [default = 1];
+
 }
 
 message TanHParameter {
