@@ -100,3 +100,5 @@ MANIFEST-*
 temp
 examples/*/*lmdb
 *.caffemodel
+*.solverstate
+*_NOTRACK
