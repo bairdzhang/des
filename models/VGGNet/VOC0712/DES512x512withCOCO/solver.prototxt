@@ -4,7 +4,7 @@ test_iter: 619
 test_interval: 10000000
 base_lr: 5e-05
 display: 10
-max_iter: 160000
+max_iter: 120000
 lr_policy: "multistep"
 gamma: 0.2
 momentum: 0.9
@@ -17,8 +17,8 @@ debug_info: false
 snapshot_after_train: true
 test_initialization: false
 average_loss: 10
+stepvalue: 80000
 stepvalue: 120000
-stepvalue: 160000
 iter_size: 1
 type: "SGD"
 eval_type: "detection"
