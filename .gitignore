@@ -102,3 +102,4 @@ examples/*/*lmdb
 *.caffemodel
 *.solverstate
 *_NOTRACK
+*.tar.gz
